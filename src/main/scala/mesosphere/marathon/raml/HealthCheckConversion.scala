@@ -239,7 +239,7 @@ trait HealthCheckConversion {
   }
 
   implicit val healthCheckProtoRamlWriter: Writes[Protos.HealthCheckDefinition, AppHealthCheck] = Writes { check =>
-    import Protos.HealthCheckDefinition.Protocol
+    import HealthCheckDefinition.Protocol
     val prototype = AppHealthCheck(
       gracePeriodSeconds = if (check.hasGracePeriodSeconds) check.getGracePeriodSeconds else AppHealthCheck.DefaultGracePeriodSeconds,
       intervalSeconds = if (check.hasIntervalSeconds) check.getIntervalSeconds else AppHealthCheck.DefaultIntervalSeconds,

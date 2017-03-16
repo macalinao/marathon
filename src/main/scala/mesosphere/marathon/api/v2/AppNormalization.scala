@@ -379,6 +379,7 @@ object AppNormalization {
         throw SerializationFailedException("cannot mix deprecated and canonical network APIs")
     }
   }
+  @SuppressWarnings(Array("AsInstanceOf"))
   def withCanonizedIds[T](base: PathId = PathId.empty): Normalization[T] = Normalization {
     case update: AppUpdate =>
       update.copy(
